@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 100vh;
+      background: url('https://cdn.pixabay.com/photo/2017/12/09/20/03/space-3009941_960_720.jpg') fixed;
+      background-size: cover;
+      font-family: 'Roboto', sans-serif;
+      transition: background-color 0.3s ease-in-out;
+      color: #333;
+    }
+    
+    .container {
+      position: relative;
+      width: 80%;
+      max-width: 400px;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      background-color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      transition: background-color 0.3s ease-in-out;
+    }
+    
+    .glow-button {
+      width: 100%;
+      border: none;
+      border-radius: 15px;
+      font-size: 18px;
+      font-family: 'Pacifico', cursive;
+      padding: 15px 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 20px;
+      transition: background-color 0.3s ease-in-out;
+      background-image: linear-gradient(45deg, #FF8C00, #FF0080, #FF69B4, #1E90FF, #00FF7F, #00CED1);
+      color: #fff;
+    }
+    
+    .glow-button::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border-radius: 20px;
+      background-image: linear-gradient(45deg, #FF8C00, #FF0080, #FF69B4, #1E90FF, #00FF7F, #00CED1);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      animation: neon-animation 5s linear infinite;
+    }
+    
+    .glow-button:hover::before {
+      opacity: 1;
+    }
+    
+    .icon {
+      font-size: 36px;
+      margin-right: 10px;
+    }
+    
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      font-family: 'Pacifico', cursive;
+    }
+    
+    .dark-mode-button {
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Pacifico', cursive;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .dark-mode-button:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    
+    .dark-mode-switch {
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      background-color: #ccc;
+      position: relative;
+      border-radius: 17px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+    
+    .dark-mode-switch:before {
+      content: '';
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: #fff;
+      top: 3px;
+      left: 3px;
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    .dark-mode-switch.checked {
+      background-color: #009688;
+    }
+    
+    .dark-mode-switch.checked:before {
+      transform: translateX(26px);
+    }
+    
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+      z-index: 0;
+    }
+    
+    .footer-button {
+      background-color: #009688;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-family: 'Pacifico', cursive;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+    
+    .footer-button:hover {
+      background-color: #00796b;
+    }
+    
+    .date-time {
+      font-size: 18px;
+      margin-top: 20px;
+      font-family: 'Pacifico', cursive;
+    }
+    
+    @keyframes neon-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+    
+    .dark-mode {
+      background-color: #333;
+      color: #fff;
+    }
+
+    /* Mobile responsive */
+    @media only screen and (max-width: 600px) {
+      .container {
+        width: 90%;
+        padding: 10px;
+        max-width: none;
+      }
+    }
+
+    /* Desktop responsive */
+    @media only screen and (min-width: 1200px) {
+      .container {
+        max-width: 800px;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>APP's Official Website</h1>
+    <a class="glow-button" href="https://share.sf86vuwx.com/sharex/cinemaen/index_fb1013.html" target="_blank">
+      <span class="icon">&#x1F4E5;</span>
+      <span>Download Official App</span>
+    </a>
+    <div class="dark-mode-button" onclick="toggleDarkMode()">
+      <span class="dark-mode-switch"></span>
+      <span>Toggle Dark Mode</span>
+    </div>
+    <div class="date-time" id="date-time">
+      <!-- Current time and date will be displayed here -->
+    </div>
+  </div>
+  <div class="footer">
+    <a class="footer-button" href="https://www.facebook.com/profile.php?id=100093783901580&mibextid=ZbWKwL" target="_blank">Contact Us</a>
+    &copy; 2023 Cinema
+  </div>
+  <script>
+    const glowButton = document.querySelector('.glow-button');
+    const darkModeButton = document.querySelector('.dark-mode-switch');
+    const container = document.querySelector('.container');
+    const colors = ['#FF8C00', '#FF0080', '#FF69B4', '#1E90FF', '#00FF7F', '#00CED1'];
+    let colorIndex = 0;
+
+    function changeColor() {
+      glowButton.style.backgroundImage = `linear-gradient(45deg, ${colors[colorIndex]}, ${colors[(colorIndex + 1) % colors.length]})`;
+      colorIndex = (colorIndex + 1) % colors.length;
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      container.classList.toggle('dark-mode');
+      darkModeButton.classList.toggle('checked');
+    }
+
+    setInterval(changeColor, 5000);
+
+    function updateDateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' };
+      const formattedDateTime = now.toLocaleDateString('en-US', options);
+      document.getElementById('date-time').textContent = formattedDateTime;
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+  </script>
+</body>
+</html>
